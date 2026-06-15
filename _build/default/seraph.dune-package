@@ -1,4 +1,4 @@
 (lang dune 3.20)
 (name seraph)
-(sections (lib .) (bin ../../bin))
-(files (lib (META dune-package opam)) (bin (seraph)))
+(sections (lib .) (bin ../../bin) (doc ../../doc/seraph))
+(files (lib (META dune-package opam)) (bin (seraph)) (doc (LICENSE)))

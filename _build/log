@@ -13,262 +13,44 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_d69cdd_output
+$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_d45054_output
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/core/.seraph.objs/byte -no-alias-deps -opaque -o lib/core/.seraph.objs/byte/seraph.cmo -c -impl lib/core/seraph.ml-gen)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/core/neon_vload.ml) > _build/default/lib/core/.seraph.objs/seraph__Neon_vload.impl.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/core/neon_types.ml) > _build/default/lib/core/.seraph.objs/seraph__Neon_types.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/core/neon_vload.ml) > _build/default/lib/core/.seraph.objs/seraph__Neon_vload.impl.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/core/neon_types.mli) > _build/default/lib/core/.seraph.objs/seraph__Neon_types.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/core/neon_varith.mli) > _build/default/lib/core/.seraph.objs/seraph__Neon_varith.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/core/neon_varith.ml) > _build/default/lib/core/.seraph.objs/seraph__Neon_varith.impl.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/core/neon_vload.mli) > _build/default/lib/core/.seraph.objs/seraph__Neon_vload.intf.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/core/tests/test_neon_types.ml) > _build/default/lib/core/tests/.test_neon_types.eobjs/dune__exe__Test_neon_types.impl.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/core/tests/test_neon_vload.ml) > _build/default/lib/core/tests/.test_neon_vload.eobjs/dune__exe__Test_neon_vload.impl.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -bin-annot -I lib/core/.seraph.objs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/byte/seraph__Neon_types.cmi -c -intf lib/core/neon_types.mli)
 $ (cd _build/default/.dune/cc_vendor && /usr/bin/cc -E -P header_check.h) > _build/default/.dune/cc_vendor/cc_vendor
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -cmi-file lib/core/.seraph.objs/byte/seraph.cmi -no-alias-deps -opaque -o lib/core/.seraph.objs/native/seraph.cmx -c -impl lib/core/seraph.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -bin-annot -I lib/core/.seraph.objs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/byte/seraph__Neon_varith.cmi -c -intf lib/core/neon_varith.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/core/tests/.test_neon_types.eobjs/byte -no-alias-deps -opaque -o lib/core/tests/.test_neon_types.eobjs/byte/dune__exe.cmo -c -impl lib/core/tests/.test_neon_types.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/core/tests/.test_neon_vload.eobjs/byte -no-alias-deps -opaque -o lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe.cmo -c -impl lib/core/tests/.test_neon_vload.eobjs/dune__exe.ml-gen)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -bin-annot -I lib/core/.seraph.objs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/byte/seraph__Neon_vload.cmi -c -intf lib/core/neon_vload.mli)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/core/tests/test_neon_types.mli) > _build/default/lib/core/tests/.test_neon_types.eobjs/dune__exe__Test_neon_types.intf.d
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/core/tests/test_neon_vload.mli) > _build/default/lib/core/tests/.test_neon_vload.eobjs/dune__exe__Test_neon_vload.intf.d
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/core/tests/.test_neon_types.eobjs/byte -no-alias-deps -opaque -o lib/core/tests/.test_neon_types.eobjs/byte/dune__exe.cmo -c -impl lib/core/tests/.test_neon_types.eobjs/dune__exe.ml-gen)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/core/tests/.test_neon_vload.eobjs/byte -no-alias-deps -opaque -o lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe.cmo -c -impl lib/core/tests/.test_neon_vload.eobjs/dune__exe.ml-gen)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.main.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I lib/core/.seraph.objs/byte -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe__Main.cmi -c -intf bin/main.mli)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/core/tests/.test_neon_types.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_types.eobjs/byte/dune__exe__Test_neon_types.cmi -c -intf lib/core/tests/test_neon_types.mli)
-$ (cd _build/default/lib/core && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -march=armv8-a+simd -O2 -g -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -o neon_stubs.o -c neon_stubs.c)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/core/tests/.test_neon_vload.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe__Test_neon_vload.cmi -c -intf lib/core/tests/test_neon_vload.mli)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -bin-annot -I lib/core/.seraph.objs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -cmi-file lib/core/.seraph.objs/byte/seraph__Neon_types.cmi -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/byte/seraph__Neon_types.cmo -c -impl lib/core/neon_types.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/core/tests/.test_neon_vload.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe__Test_neon_vload.cmi -c -intf lib/core/tests/test_neon_vload.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/core/tests/.test_neon_types.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_types.eobjs/byte/dune__exe__Test_neon_types.cmi -c -intf lib/core/tests/test_neon_types.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -bin-annot -I lib/core/.seraph.objs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -cmi-file lib/core/.seraph.objs/byte/seraph__Neon_varith.cmi -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/byte/seraph__Neon_varith.cmo -c -impl lib/core/neon_varith.ml)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -bin-annot -I lib/core/.seraph.objs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -cmi-file lib/core/.seraph.objs/byte/seraph__Neon_vload.cmi -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/byte/seraph__Neon_vload.cmo -c -impl lib/core/neon_vload.ml)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/core/tests/.test_neon_types.eobjs/byte -I lib/core/tests/.test_neon_types.eobjs/native -cmi-file lib/core/tests/.test_neon_types.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/core/tests/.test_neon_types.eobjs/native/dune__exe.cmx -c -impl lib/core/tests/.test_neon_types.eobjs/dune__exe.ml-gen)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -a -o lib/core/seraph.cma -dllib -lseraph_stubs -cclib -lseraph_stubs lib/core/.seraph.objs/byte/seraph.cmo lib/core/.seraph.objs/byte/seraph__Neon_types.cmo lib/core/.seraph.objs/byte/seraph__Neon_vload.cmo)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/core/tests/.test_neon_vload.eobjs/byte -I lib/core/tests/.test_neon_vload.eobjs/native -cmi-file lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/core/tests/.test_neon_vload.eobjs/native/dune__exe.cmx -c -impl lib/core/tests/.test_neon_vload.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -a -o lib/core/seraph.cma -dllib -lseraph_stubs -cclib -lseraph_stubs lib/core/.seraph.objs/byte/seraph.cmo lib/core/.seraph.objs/byte/seraph__Neon_types.cmo lib/core/.seraph.objs/byte/seraph__Neon_vload.cmo lib/core/.seraph.objs/byte/seraph__Neon_varith.cmo)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -cmi-file lib/core/.seraph.objs/byte/seraph__Neon_types.cmi -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/native/seraph__Neon_types.cmx -c -impl lib/core/neon_types.ml)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -cmi-file bin/.main.eobjs/byte/dune__exe__Main.cmi -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlmklib -g -o lib/core/seraph_stubs lib/core/neon_stubs.o)
-> ranlib: warning: 'libseraph_stubs.a(neon_stubs.o)' has no symbols
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/core/tests/.test_neon_types.eobjs/byte -I lib/core/tests/.test_neon_types.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -cmi-file lib/core/tests/.test_neon_types.eobjs/byte/dune__exe__Test_neon_types.cmi -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_types.eobjs/native/dune__exe__Test_neon_types.cmx -c -impl lib/core/tests/test_neon_types.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/core/tests/.test_neon_types.eobjs/byte -I lib/core/tests/.test_neon_types.eobjs/native -cmi-file lib/core/tests/.test_neon_types.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/core/tests/.test_neon_types.eobjs/native/dune__exe.cmx -c -impl lib/core/tests/.test_neon_types.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/core/tests/.test_neon_vload.eobjs/byte -I lib/core/tests/.test_neon_vload.eobjs/native -cmi-file lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/core/tests/.test_neon_vload.eobjs/native/dune__exe.cmx -c -impl lib/core/tests/.test_neon_vload.eobjs/dune__exe.ml-gen)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -cmi-file lib/core/.seraph.objs/byte/seraph__Neon_vload.cmi -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/native/seraph__Neon_vload.cmx -c -impl lib/core/neon_vload.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -cmi-file bin/.main.eobjs/byte/dune__exe__Main.cmi -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -cmi-file lib/core/.seraph.objs/byte/seraph__Neon_varith.cmi -no-alias-deps -opaque -open Seraph -o lib/core/.seraph.objs/native/seraph__Neon_varith.cmx -c -impl lib/core/neon_varith.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/core/tests/.test_neon_types.eobjs/byte -I lib/core/tests/.test_neon_types.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -cmi-file lib/core/tests/.test_neon_types.eobjs/byte/dune__exe__Test_neon_types.cmi -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_types.eobjs/native/dune__exe__Test_neon_types.cmx -c -impl lib/core/tests/test_neon_types.ml)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/core/tests/.test_neon_vload.eobjs/byte -I lib/core/tests/.test_neon_vload.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/core/.seraph.objs/byte -I lib/core/.seraph.objs/native -cmi-file lib/core/tests/.test_neon_vload.eobjs/byte/dune__exe__Test_neon_vload.cmi -no-alias-deps -opaque -open Dune__exe -o lib/core/tests/.test_neon_vload.eobjs/native/dune__exe__Test_neon_vload.cmx -c -impl lib/core/tests/test_neon_vload.ml)
-$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -a -o lib/core/seraph.cmxa -cclib -lseraph_stubs lib/core/.seraph.objs/native/seraph.cmx lib/core/.seraph.objs/native/seraph__Neon_types.cmx lib/core/.seraph.objs/native/seraph__Neon_vload.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -a -o lib/core/seraph.cmxa -cclib -lseraph_stubs lib/core/.seraph.objs/native/seraph.cmx lib/core/.seraph.objs/native/seraph__Neon_types.cmx lib/core/.seraph.objs/native/seraph__Neon_vload.cmx lib/core/.seraph.objs/native/seraph__Neon_varith.cmx)
+$ (cd _build/default/lib/core && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -march=armv8-a+simd -O2 -g -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0 -o neon_stubs.o -c neon_stubs.c)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlmklib -g -o lib/core/seraph_stubs lib/core/neon_stubs.o)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -32 -g -shared -linkall -I lib/core -o lib/core/seraph.cmxs lib/core/seraph.cmxa)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0/sexplib0.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel/ocaml_intrinsics_kernel.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base lib/core/seraph.cmxa -I lib/core bin/.main.eobjs/native/dune__exe__Main.cmx)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o lib/core/tests/test_neon_types.exe /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0/sexplib0.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel/ocaml_intrinsics_kernel.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base lib/core/seraph.cmxa -I lib/core /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring/astring.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner/cmdliner.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf/uutf.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/fmt.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli/fmt_cli.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/re/re.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims/stdlib_shims.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine/alcotest_engine.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix/unix.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty/fmt_tty.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/alcotest.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest lib/core/tests/.test_neon_types.eobjs/native/dune__exe.cmx lib/core/tests/.test_neon_types.eobjs/native/dune__exe__Test_neon_types.cmx)
 $ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o lib/core/tests/test_neon_vload.exe /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types/base_internalhash_types.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base_internalhash_types /Users/kaushikmuthukumar/.opam/5.1.1/lib/sexplib0/sexplib0.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/shadow_stdlib/shadow_stdlib.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel/ocaml_intrinsics_kernel.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml_intrinsics_kernel /Users/kaushikmuthukumar/.opam/5.1.1/lib/base/base.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/base lib/core/seraph.cmxa -I lib/core /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring/astring.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner/cmdliner.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf/uutf.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/fmt.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli/fmt_cli.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/re/re.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims/stdlib_shims.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine/alcotest_engine.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix/unix.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty/fmt_tty.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/alcotest.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest lib/core/tests/.test_neon_vload.eobjs/native/dune__exe.cmx lib/core/tests/.test_neon_vload.eobjs/native/dune__exe__Test_neon_vload.cmx)
-> Undefined symbols for architecture arm64:
->   "_caml_seraph_vld1_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_f64", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_u16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_u32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_f64", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_u16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_u32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld1q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_u16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_u32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld2q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld3q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld3q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld3q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld3q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld3q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld4q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld4q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld4q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld4q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vld4q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_f64", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_u16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_u32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_f64", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_u16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_u32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst1q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_u16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_u32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst2q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst3q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst3q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst3q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst3q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst3q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst4q_f32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst4q_s16", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst4q_s32", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst4q_s8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
->   "_caml_seraph_vst4q_u8", referenced from:
->       _camlSeraph__Neon_vload.code_begin in seraph.a[4](seraph__Neon_vload.o)
->       _camlSeraph__Neon_vload.data_begin in seraph.a[4](seraph__Neon_vload.o)
-> ld: symbol(s) not found for architecture arm64
-> clang: error: linker command failed with exit code 1 (use -v to see invocation)
-> File "caml_startup", line 1:
-> Error: Error during linking (exit code 1)
-[2]
