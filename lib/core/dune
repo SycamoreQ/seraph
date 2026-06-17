@@ -1,9 +1,0 @@
-(library
- (name seraph)
- (modules neon_types neon_vload neon_varith)
- (libraries bigarray base)
- (flags (:standard -w -32))
- (foreign_stubs
-  (language c)
-  (names neon_stubs)
-  (flags (:standard -march=armv8-a+simd -O2))))

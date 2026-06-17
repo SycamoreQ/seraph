@@ -1,7 +1,0 @@
-(test
- (name test_neon_types)
- (libraries seraph alcotest))
-
-(test
-  (name test_neon_vload)
-  (libraries seraph alcotest))
