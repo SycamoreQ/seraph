@@ -1,9 +1,15 @@
 open Bigarray
 
-(* Plain scalar reference: the ground truth every hand-written kernel
-   gets checked against. *)
-let saxpy (a : float) (x : Kernels.f32arr) (y : Kernels.f32arr) =
+let saxpy (a : float) (x : Bindings.f32arr) (y : Bindings.f32arr) =
   let n = Array1.dim x in
   for i = 0 to n - 1 do
     y.{i} <- (a *. x.{i}) +. y.{i}
   done
+
+let dot_prod (x: Bindings.f32arr) (y: Bindings.f32arr) =
+  let n = Array1.dim x in
+  let sum = ref 0.0 in
+  for i = 0 to n-1 do
+    sum := !sum +. (x.{i} *. y.{i})
+  done;
+  !sum

@@ -12,8 +12,7 @@
 //
 // This is a leaf function and only touches v0-v3, w2-w4, x0-x1 — all of
 // which are caller-saved under AAPCS64, so no register save/restore is
-// needed here. (Kernels that *do* need v8-v15 across a call are exactly
-// where the ABI linter from our earlier discussion earns its keep.)
+// needed here.
 //
 // .S (capital S) is preprocessed by the C preprocessor before assembly,
 // which is what makes the FN() macro below work — on macOS/Mach-O, C

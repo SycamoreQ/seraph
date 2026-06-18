@@ -1,0 +1,9 @@
+(include_subdirs unqualified)
+
+(test
+ (name test_saxpy)
+ (libraries seraph alcotest))
+
+(test
+  (name test_dot_prod)
+  (libraries seraph alcotest))

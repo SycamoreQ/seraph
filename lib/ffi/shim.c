@@ -19,3 +19,14 @@ CAMLprim value caml_saxpy_neon(value a, value x, value y, value n)
              Int_val(n));
   return Val_unit;
 }
+
+
+extern float dot_neon(const float *x, const float *y, int n);
+
+CAMLprim value caml_dot_neon(value x, value y, value n)
+{
+  float result = dot_neon((const float *)Caml_ba_data_val(x),
+                           (const float *)Caml_ba_data_val(y),
+                           Int_val(n));
+  return caml_copy_double(result);
+}

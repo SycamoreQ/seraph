@@ -1,0 +1,20 @@
+(include_subdirs unqualified)
+
+(rule
+ (target saxpy.o)
+ (deps kernels/saxpy.S)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+ (rule
+  (target dot_neon.o)
+  (deps kernels/dot.S)
+  (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target shim.o)
+ (deps ffi/shim.c)
+ (action (run %{cc} -c -I %{ocaml_where} %{deps} -o %{target})))
+
+(library
+ (name seraph)
+ (extra_objects saxpy shim dot_neon))

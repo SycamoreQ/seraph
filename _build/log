@@ -13,94 +13,48 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_7adfff_output
-$ (cd _build/default/lib/core/tests && ./test_neon_vload.exe)
-> Testing `Seraph.Neon_vload'.
-> This run has ID `WUHTA1B3'.
+$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_5bce00_output
+$ (cd _build/default/lib/test && ./test_dot_prod.exe)
+> Testing `seraph'.
+> This run has ID `FNZQD2JQ'.
 >
->   [OK]          Ptr                 0   of_bytes valid.
->   [OK]          Ptr                 1   of_bytes slice.
->   [OK]          Ptr                 2   of_bytes negative off.
->   [OK]          Ptr                 3   of_bytes negative len.
->   [OK]          Ptr                 4   of_bytes overflow.
->   [OK]          Ptr                 5   of_bytes exact fit.
->   [OK]          Ptr                 6   advance valid.
->   [OK]          Ptr                 7   advance chained.
->   [OK]          Ptr                 8   advance exact.
->   [OK]          Ptr                 9   advance overflow.
->   [OK]          Ptr                10   advance negative.
->   [OK]          Ptr                11   of_bytes_exn valid.
->   [OK]          Ptr                12   of_bytes_exn raises.
->   [OK]          Ptr                13   advance_exn raises.
->   [OK]          byte_width          0   byte_width.
->   [OK]          Bounds              0   vld1 bounds: too small.
->   [OK]          Bounds              1   vld1 bounds: exact.
->   [OK]          Bounds              2   vld1 align: float32 odd off.
->   [OK]          Bounds              3   vld1 align: int8 any offset.
->   [OK]          Bounds              4   vld1 align: float64.
->   [OK]          Bounds              5   vld1 align: int16.
->   [OK]          Bounds              6   vst1 bounds: too small.
->   [OK]          Bounds              7   vld2 bounds: needs 2x.
->   [OK]          Bounds              8   vld3 bounds: needs 3x.
->   [OK]          Bounds              9   vld4 bounds: needs 4x.
+>   [OK]          dot          0   n=1.
+>   [OK]          dot          1   n=2.
+>   [OK]          dot          2   n=3.
+>   [OK]          dot          3   n=4.
+>   [OK]          dot          4   n=5.
+>   [OK]          dot          5   n=7.
+>   [OK]          dot          6   n=8.
+>   [OK]          dot          7   n=9.
+>   [OK]          dot          8   n=16.
+>   [OK]          dot          9   n=17.
+>   [OK]          dot         10   n=31.
+>   [OK]          dot         11   n=32.
+>   [OK]          dot         12   n=33.
+>   [OK]          dot         13   n=100.
+>   [OK]          dot         14   n=1000.
 >
-> Full test results in `~/Documents/projects/seraph/_build/default/lib/core/tests/_build/_tests/Seraph.Neon_vload'.
-> Test Successful in 0.004s. 25 tests run.
-$ (cd _build/default/lib/core/tests && ./test_neon_types.exe)
-> Testing `Seraph.Neon_types'.
-> This run has ID `FWEODFP4'.
+> Full test results in `~/Documents/projects/seraph/_build/default/lib/test/_build/_tests/seraph'.
+> Test Successful in 0.002s. 15 tests run.
+$ (cd _build/default/lib/test && ./test_saxpy.exe)
+> Testing `seraph'.
+> This run has ID `VKH9NWCM'.
 >
->   [OK]          Reg              0   D bits.
->   [OK]          Reg              1   Q bits.
->   [OK]          Reg              2   D name.
->   [OK]          Reg              3   Q name.
->   [OK]          Elt              0   bits.
->   [OK]          Elt              1   names.
->   [OK]          Elt              2   is_float.
->   [OK]          Elt              3   is_signed.
->   [OK]          Lanes            0   counts.
->   [OK]          Widen            0   narrow_bits.
->   [OK]          Widen            1   wide_bits.
->   [OK]          Widen            2   invariant.
->   [OK]          Error            0   error variants.
->   [OK]          Error            1   seraph_result.
->   [OK]          Phantom          0   compile-time constraints.
+>   [OK]          saxpy          0   n=1.
+>   [OK]          saxpy          1   n=2.
+>   [OK]          saxpy          2   n=3.
+>   [OK]          saxpy          3   n=4.
+>   [OK]          saxpy          4   n=5.
+>   [OK]          saxpy          5   n=7.
+>   [OK]          saxpy          6   n=8.
+>   [OK]          saxpy          7   n=9.
+>   [OK]          saxpy          8   n=16.
+>   [OK]          saxpy          9   n=17.
+>   [OK]          saxpy         10   n=31.
+>   [OK]          saxpy         11   n=32.
+>   [OK]          saxpy         12   n=33.
+>   [OK]          saxpy         13   n=100.
+>   [OK]          saxpy         14   n=1000.
 >
-> Full test results in `~/Documents/projects/seraph/_build/default/lib/core/tests/_build/_tests/Seraph.Neon_types'.
+> Full test results in `~/Documents/projects/seraph/_build/default/lib/test/_build/_tests/seraph'.
 > Test Successful in 0.003s. 15 tests run.
-$ (cd _build/default/lib/core/tests && ./test_neon_varith.exe)
-> Testing `Seraph.Neon_varith'.
-> This run has ID `P2I9G17W'.
->
->   [OK]          float32_4          0   vadd.
->   [OK]          float32_4          1   vsub.
->   [OK]          float32_4          2   vmul.
->   [OK]          float32_4          3   vfma.
->   [OK]          float32_4          4   vneg.
->   [OK]          float32_4          5   vabs.
->   [OK]          float32_4          6   vdup.
->   [OK]          float32_4          7   vredsum.
->   [OK]          float32_4          8   vredmax.
->   [OK]          float32_4          9   vredmin.
->   [OK]          float32_2          0   vadd.
->   [OK]          float32_2          1   vfma.
->   [OK]          int32_4            0   vadd.
->   [OK]          int32_4            1   vmul.
->   [OK]          int32_4            2   vfma unsupported.
->   [OK]          int32_4            3   vneg.
->   [OK]          int32_4            4   vredsum.
->   [OK]          int32_4            5   vredmax.
->   [OK]          int32_4            6   vredmin.
->   [OK]          int16_8            0   vadd.
->   [OK]          int16_8            1   vmul.
->   [OK]          int16_8            2   vredsum.
->   [OK]          int8_16            0   vadd.
->   [OK]          int8_16            1   vmul unsupported.
->   [OK]          int8_16            2   vneg.
->   [OK]          uint8_16           0   vadd.
->   [OK]          uint8_16           1   vdup.
->   [OK]          uint8_16           2   vneg unsupported.
->   [OK]          Functor            0   open Float32_4 syntax.
->
-> Full test results in `~/Documents/projects/seraph/_build/default/lib/core/tests/_build/_tests/Seraph.Neon_varith'.
-> Test Successful in 0.005s. 29 tests run.
