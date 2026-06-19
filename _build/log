@@ -13,48 +13,118 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_5bce00_output
-$ (cd _build/default/lib/test && ./test_dot_prod.exe)
-> Testing `seraph'.
-> This run has ID `FNZQD2JQ'.
->
->   [OK]          dot          0   n=1.
->   [OK]          dot          1   n=2.
->   [OK]          dot          2   n=3.
->   [OK]          dot          3   n=4.
->   [OK]          dot          4   n=5.
->   [OK]          dot          5   n=7.
->   [OK]          dot          6   n=8.
->   [OK]          dot          7   n=9.
->   [OK]          dot          8   n=16.
->   [OK]          dot          9   n=17.
->   [OK]          dot         10   n=31.
->   [OK]          dot         11   n=32.
->   [OK]          dot         12   n=33.
->   [OK]          dot         13   n=100.
->   [OK]          dot         14   n=1000.
->
-> Full test results in `~/Documents/projects/seraph/_build/default/lib/test/_build/_tests/seraph'.
-> Test Successful in 0.002s. 15 tests run.
+$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_c6f605_output
 $ (cd _build/default/lib/test && ./test_saxpy.exe)
 > Testing `seraph'.
-> This run has ID `VKH9NWCM'.
+> This run has ID `USG0ZONQ'.
 >
->   [OK]          saxpy          0   n=1.
->   [OK]          saxpy          1   n=2.
->   [OK]          saxpy          2   n=3.
->   [OK]          saxpy          3   n=4.
->   [OK]          saxpy          4   n=5.
->   [OK]          saxpy          5   n=7.
->   [OK]          saxpy          6   n=8.
->   [OK]          saxpy          7   n=9.
->   [OK]          saxpy          8   n=16.
->   [OK]          saxpy          9   n=17.
->   [OK]          saxpy         10   n=31.
->   [OK]          saxpy         11   n=32.
->   [OK]          saxpy         12   n=33.
->   [OK]          saxpy         13   n=100.
->   [OK]          saxpy         14   n=1000.
+>   [OK]          saxpy                0   n=1.
+>   [OK]          saxpy                1   n=2.
+>   [OK]          saxpy                2   n=3.
+>   [OK]          saxpy                3   n=4.
+>   [OK]          saxpy                4   n=5.
+>   [OK]          saxpy                5   n=7.
+>   [OK]          saxpy                6   n=8.
+>   [OK]          saxpy                7   n=9.
+>   [OK]          saxpy                8   n=16.
+>   [OK]          saxpy                9   n=17.
+>   [OK]          saxpy               10   n=31.
+>   [OK]          saxpy               11   n=32.
+>   [OK]          saxpy               12   n=33.
+>   [OK]          saxpy               13   n=100.
+>   [OK]          saxpy               14   n=1000.
 >
-> Full test results in `~/Documents/projects/seraph/_build/default/lib/test/_build/_tests/seraph'.
-> Test Successful in 0.003s. 15 tests run.
+> -- L1 (n=256, reps=200000) --
+>   scalar (OCaml)                   185.02 ns/call      2.77 GFLOP/s     16.60 GB/s
+>   neon (hand-written)               19.79 ns/call     25.87 GFLOP/s    155.23 GB/s
+>   clang -O3, no restrict            16.79 ns/call     30.49 GFLOP/s    182.96 GB/s
+>   clang -O3, restrict               16.48 ns/call     31.07 GFLOP/s    186.40 GB/s
+>   [OK]          saxpy-bench          0   L1.
+>
+> -- L2 (n=65536, reps=2000) --
+>   scalar (OCaml)                 47205.09 ns/call      2.78 GFLOP/s     16.66 GB/s
+>   neon (hand-written)             5599.50 ns/call     23.41 GFLOP/s    140.45 GB/s
+>   clang -O3, no restrict          5360.01 ns/call     24.45 GFLOP/s    146.72 GB/s
+>   clang -O3, restrict             5357.03 ns/call     24.47 GFLOP/s    146.80 GB/s
+>   [OK]          saxpy-bench          1   L2.
+>
+> -- DRAM (n=4000000, reps=30) --
+>   scalar (OCaml)               2928900.72 ns/call      2.73 GFLOP/s     16.39 GB/s
+>   neon (hand-written)           413672.13 ns/call     19.34 GFLOP/s    116.03 GB/s
+>   clang -O3, no restrict        403300.92 ns/call     19.84 GFLOP/s    119.02 GB/s
+>   clang -O3, restrict           438904.76 ns/call     18.23 GFLOP/s    109.36 GB/s
+>   [OK]          saxpy-bench          2   DRAM.
+>
+> Test Successful in 0.372s. 18 tests run.
+> ASSERT saxpy n=1
+> ASSERT saxpy n=2
+> ASSERT saxpy n=3
+> ASSERT saxpy n=4
+> ASSERT saxpy n=5
+> ASSERT saxpy n=7
+> ASSERT saxpy n=8
+> ASSERT saxpy n=9
+> ASSERT saxpy n=16
+> ASSERT saxpy n=17
+> ASSERT saxpy n=31
+> ASSERT saxpy n=32
+> ASSERT saxpy n=33
+> ASSERT saxpy n=100
+> ASSERT saxpy n=1000
+$ (cd _build/default/lib/test && ./test_dot_prod.exe)
+> Testing `seraph'.
+> This run has ID `KBJW0AX7'.
+>
+>   [OK]          dot                0   n=1.
+>   [OK]          dot                1   n=2.
+>   [OK]          dot                2   n=3.
+>   [OK]          dot                3   n=4.
+>   [OK]          dot                4   n=5.
+>   [OK]          dot                5   n=7.
+>   [OK]          dot                6   n=8.
+>   [OK]          dot                7   n=9.
+>   [OK]          dot                8   n=16.
+>   [OK]          dot                9   n=17.
+>   [OK]          dot               10   n=31.
+>   [OK]          dot               11   n=32.
+>   [OK]          dot               12   n=33.
+>   [OK]          dot               13   n=100.
+>   [OK]          dot               14   n=1000.
+>
+> -- L1 (n=256, reps=200000) --
+>   scalar (OCaml)                   243.93 ns/call      2.10 GFLOP/s      8.40 GB/s  (checksum=-2.82e+06)
+>   neon (hand-written, 1 acc)        31.92 ns/call     16.04 GFLOP/s     64.16 GB/s  (checksum=-2.82e+06)
+>   clang -O3, no restrict            82.55 ns/call      6.20 GFLOP/s     24.81 GB/s  (checksum=-2.82e+06)
+>   clang -O3, restrict               83.83 ns/call      6.11 GFLOP/s     24.43 GB/s  (checksum=-2.82e+06)
+>   [OK]          dot-bench          0   L1.
+>
+> -- L2 (n=65536, reps=2000) --
+>   scalar (OCaml)                 59865.47 ns/call      2.19 GFLOP/s      8.76 GB/s  (checksum=7.54e+06)
+>   neon (hand-written, 1 acc)     13870.48 ns/call      9.45 GFLOP/s     37.80 GB/s  (checksum=7.54e+06)
+>   clang -O3, no restrict         35758.50 ns/call      3.67 GFLOP/s     14.66 GB/s  (checksum=7.54e+06)
+>   clang -O3, restrict            35778.05 ns/call      3.66 GFLOP/s     14.65 GB/s  (checksum=7.54e+06)
+>   [OK]          dot-bench          1   L2.
+>
+> -- DRAM (n=4000000, reps=30) --
+>   scalar (OCaml)               3688295.68 ns/call      2.17 GFLOP/s      8.68 GB/s  (checksum=-6.1e+05)
+>   neon (hand-written, 1 acc)    782100.36 ns/call     10.23 GFLOP/s     40.92 GB/s  (checksum=-6.1e+05)
+>   clang -O3, no restrict       1986662.55 ns/call      4.03 GFLOP/s     16.11 GB/s  (checksum=-6.1e+05)
+>   clang -O3, restrict          1980964.34 ns/call      4.04 GFLOP/s     16.15 GB/s  (checksum=-6.1e+05)
+>   [OK]          dot-bench          2   DRAM.
+>
+> Test Successful in 0.720s. 18 tests run.
+> ASSERT dot n=1
+> ASSERT dot n=2
+> ASSERT dot n=3
+> ASSERT dot n=4
+> ASSERT dot n=5
+> ASSERT dot n=7
+> ASSERT dot n=8
+> ASSERT dot n=9
+> ASSERT dot n=16
+> ASSERT dot n=17
+> ASSERT dot n=31
+> ASSERT dot n=32
+> ASSERT dot n=33
+> ASSERT dot n=100
+> ASSERT dot n=1000

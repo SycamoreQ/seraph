@@ -15,6 +15,17 @@
  (deps ffi/shim.c)
  (action (run %{cc} -c -I %{ocaml_where} %{deps} -o %{target})))
 
+ (rule
+  (target saxpy_gen.o)
+  (deps tools/gen/saxpy.s)
+  (action (run %{cc} -c %{deps} -o %{target})))
+
+ (rule
+  (target dot_gen.o)
+  (deps tools/gen/dot.s)
+  (action (run %{cc} -c %{deps} -o %{target})))
+
+
 (library
  (name seraph)
- (extra_objects saxpy shim dot_neon))
+ (extra_objects saxpy shim dot_neon saxpy_gen dot_gen))

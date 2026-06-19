@@ -331,3 +331,4 @@ TSWLatexianTemp*
 #*Notes.bib
 
 _build*/
+.DS_Store
