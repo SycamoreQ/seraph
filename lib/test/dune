@@ -7,3 +7,7 @@
 (test
   (name test_dot_prod)
   (libraries seraph alcotest unix))
+
+(test
+  (name test_sum_reduction)
+  (libraries seraph alcotest unix))

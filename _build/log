@@ -1,4 +1,4 @@
-# dune test
+# dune build
 # OCAMLPARAM: unset
 # Shared cache: enabled-except-user-rules
 # Shared cache location: /Users/kaushikmuthukumar/.cache/dune/db
@@ -13,118 +13,79 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_c6f605_output
-$ (cd _build/default/lib/test && ./test_saxpy.exe)
-> Testing `seraph'.
-> This run has ID `USG0ZONQ'.
->
->   [OK]          saxpy                0   n=1.
->   [OK]          saxpy                1   n=2.
->   [OK]          saxpy                2   n=3.
->   [OK]          saxpy                3   n=4.
->   [OK]          saxpy                4   n=5.
->   [OK]          saxpy                5   n=7.
->   [OK]          saxpy                6   n=8.
->   [OK]          saxpy                7   n=9.
->   [OK]          saxpy                8   n=16.
->   [OK]          saxpy                9   n=17.
->   [OK]          saxpy               10   n=31.
->   [OK]          saxpy               11   n=32.
->   [OK]          saxpy               12   n=33.
->   [OK]          saxpy               13   n=100.
->   [OK]          saxpy               14   n=1000.
->
-> -- L1 (n=256, reps=200000) --
->   scalar (OCaml)                   185.02 ns/call      2.77 GFLOP/s     16.60 GB/s
->   neon (hand-written)               19.79 ns/call     25.87 GFLOP/s    155.23 GB/s
->   clang -O3, no restrict            16.79 ns/call     30.49 GFLOP/s    182.96 GB/s
->   clang -O3, restrict               16.48 ns/call     31.07 GFLOP/s    186.40 GB/s
->   [OK]          saxpy-bench          0   L1.
->
-> -- L2 (n=65536, reps=2000) --
->   scalar (OCaml)                 47205.09 ns/call      2.78 GFLOP/s     16.66 GB/s
->   neon (hand-written)             5599.50 ns/call     23.41 GFLOP/s    140.45 GB/s
->   clang -O3, no restrict          5360.01 ns/call     24.45 GFLOP/s    146.72 GB/s
->   clang -O3, restrict             5357.03 ns/call     24.47 GFLOP/s    146.80 GB/s
->   [OK]          saxpy-bench          1   L2.
->
-> -- DRAM (n=4000000, reps=30) --
->   scalar (OCaml)               2928900.72 ns/call      2.73 GFLOP/s     16.39 GB/s
->   neon (hand-written)           413672.13 ns/call     19.34 GFLOP/s    116.03 GB/s
->   clang -O3, no restrict        403300.92 ns/call     19.84 GFLOP/s    119.02 GB/s
->   clang -O3, restrict           438904.76 ns/call     18.23 GFLOP/s    109.36 GB/s
->   [OK]          saxpy-bench          2   DRAM.
->
-> Test Successful in 0.372s. 18 tests run.
-> ASSERT saxpy n=1
-> ASSERT saxpy n=2
-> ASSERT saxpy n=3
-> ASSERT saxpy n=4
-> ASSERT saxpy n=5
-> ASSERT saxpy n=7
-> ASSERT saxpy n=8
-> ASSERT saxpy n=9
-> ASSERT saxpy n=16
-> ASSERT saxpy n=17
-> ASSERT saxpy n=31
-> ASSERT saxpy n=32
-> ASSERT saxpy n=33
-> ASSERT saxpy n=100
-> ASSERT saxpy n=1000
-$ (cd _build/default/lib/test && ./test_dot_prod.exe)
-> Testing `seraph'.
-> This run has ID `KBJW0AX7'.
->
->   [OK]          dot                0   n=1.
->   [OK]          dot                1   n=2.
->   [OK]          dot                2   n=3.
->   [OK]          dot                3   n=4.
->   [OK]          dot                4   n=5.
->   [OK]          dot                5   n=7.
->   [OK]          dot                6   n=8.
->   [OK]          dot                7   n=9.
->   [OK]          dot                8   n=16.
->   [OK]          dot                9   n=17.
->   [OK]          dot               10   n=31.
->   [OK]          dot               11   n=32.
->   [OK]          dot               12   n=33.
->   [OK]          dot               13   n=100.
->   [OK]          dot               14   n=1000.
->
-> -- L1 (n=256, reps=200000) --
->   scalar (OCaml)                   243.93 ns/call      2.10 GFLOP/s      8.40 GB/s  (checksum=-2.82e+06)
->   neon (hand-written, 1 acc)        31.92 ns/call     16.04 GFLOP/s     64.16 GB/s  (checksum=-2.82e+06)
->   clang -O3, no restrict            82.55 ns/call      6.20 GFLOP/s     24.81 GB/s  (checksum=-2.82e+06)
->   clang -O3, restrict               83.83 ns/call      6.11 GFLOP/s     24.43 GB/s  (checksum=-2.82e+06)
->   [OK]          dot-bench          0   L1.
->
-> -- L2 (n=65536, reps=2000) --
->   scalar (OCaml)                 59865.47 ns/call      2.19 GFLOP/s      8.76 GB/s  (checksum=7.54e+06)
->   neon (hand-written, 1 acc)     13870.48 ns/call      9.45 GFLOP/s     37.80 GB/s  (checksum=7.54e+06)
->   clang -O3, no restrict         35758.50 ns/call      3.67 GFLOP/s     14.66 GB/s  (checksum=7.54e+06)
->   clang -O3, restrict            35778.05 ns/call      3.66 GFLOP/s     14.65 GB/s  (checksum=7.54e+06)
->   [OK]          dot-bench          1   L2.
->
-> -- DRAM (n=4000000, reps=30) --
->   scalar (OCaml)               3688295.68 ns/call      2.17 GFLOP/s      8.68 GB/s  (checksum=-6.1e+05)
->   neon (hand-written, 1 acc)    782100.36 ns/call     10.23 GFLOP/s     40.92 GB/s  (checksum=-6.1e+05)
->   clang -O3, no restrict       1986662.55 ns/call      4.03 GFLOP/s     16.11 GB/s  (checksum=-6.1e+05)
->   clang -O3, restrict          1980964.34 ns/call      4.04 GFLOP/s     16.15 GB/s  (checksum=-6.1e+05)
->   [OK]          dot-bench          2   DRAM.
->
-> Test Successful in 0.720s. 18 tests run.
-> ASSERT dot n=1
-> ASSERT dot n=2
-> ASSERT dot n=3
-> ASSERT dot n=4
-> ASSERT dot n=5
-> ASSERT dot n=7
-> ASSERT dot n=8
-> ASSERT dot n=9
-> ASSERT dot n=16
-> ASSERT dot n=17
-> ASSERT dot n=31
-> ASSERT dot n=32
-> ASSERT dot n=33
-> ASSERT dot n=100
-> ASSERT dot n=1000
+$ /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -config > /var/folders/by/5fxkk00x0777y8jv99x1h2440000gn/T/dune_01183a_output
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/.seraph.objs/byte -no-alias-deps -opaque -o lib/.seraph.objs/byte/seraph.cmo -c -impl lib/seraph.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/scalar/scalar.ml) > _build/default/lib/.seraph.objs/seraph__Scalar.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl bin/main.ml) > _build/default/bin/.main.eobjs/dune__exe__Main.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl bin/bench_saxpy.ml) > _build/default/bin/.bench_saxpy.eobjs/dune__exe__Bench_saxpy.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl bin/bench_sum_reduce.ml) > _build/default/bin/.bench_sum_reduce.eobjs/dune__exe__Bench_sum_reduce.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl bin/bench_dot.ml) > _build/default/bin/.bench_dot.eobjs/dune__exe__Bench_dot.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/ffi/bindings.ml) > _build/default/lib/.seraph.objs/seraph__Bindings.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/ffi/bindings.mli) > _build/default/lib/.seraph.objs/seraph__Bindings.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/scalar/scalar.mli) > _build/default/lib/.seraph.objs/seraph__Scalar.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I bin/.main.eobjs/byte -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe.cmo -c -impl bin/.main.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I bin/.bench_sum_reduce.eobjs/byte -no-alias-deps -opaque -o bin/.bench_sum_reduce.eobjs/byte/dune__exe.cmo -c -impl bin/.bench_sum_reduce.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I bin/.bench_saxpy.eobjs/byte -no-alias-deps -opaque -o bin/.bench_saxpy.eobjs/byte/dune__exe.cmo -c -impl bin/.bench_saxpy.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I bin/.bench_dot.eobjs/byte -no-alias-deps -opaque -o bin/.bench_dot.eobjs/byte/dune__exe.cmo -c -impl bin/.bench_dot.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Seraph -o lib/.seraph.objs/byte/seraph__Bindings.cmi -c -intf lib/ffi/bindings.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf bin/main.mli) > _build/default/bin/.main.eobjs/dune__exe__Main.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Seraph -o lib/.seraph.objs/byte/seraph__Scalar.cmi -c -intf lib/scalar/scalar.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf bin/bench_saxpy.mli) > _build/default/bin/.bench_saxpy.eobjs/dune__exe__Bench_saxpy.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.seraph.objs/byte -cmi-file lib/.seraph.objs/byte/seraph__Bindings.cmi -no-alias-deps -opaque -open Seraph -o lib/.seraph.objs/byte/seraph__Bindings.cmo -c -impl lib/ffi/bindings.ml)
+$ (cd _build/default/.dune/cc_vendor && /usr/bin/cc -E -P header_check.h) > _build/default/.dune/cc_vendor/cc_vendor
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf bin/bench_sum_reduce.mli) > _build/default/bin/.bench_sum_reduce.eobjs/dune__exe__Bench_sum_reduce.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf bin/bench_dot.mli) > _build/default/bin/.bench_dot.eobjs/dune__exe__Bench_dot.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/test/test_dot_prod.ml) > _build/default/lib/test/.test_dot_prod.eobjs/dune__exe__Test_dot_prod.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/test/test_saxpy.ml) > _build/default/lib/test/.test_saxpy.eobjs/dune__exe__Test_saxpy.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -impl lib/test/test_sum_reduction.ml) > _build/default/lib/test/.test_sum_reduction.eobjs/dune__exe__Test_sum_reduction.impl.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file lib/.seraph.objs/byte/seraph.cmi -no-alias-deps -opaque -o lib/.seraph.objs/native/seraph.cmx -c -impl lib/seraph.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.main.eobjs/byte -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o bin/.main.eobjs/byte/dune__exe__Main.cmi -c -intf bin/main.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.seraph.objs/byte -cmi-file lib/.seraph.objs/byte/seraph__Scalar.cmi -no-alias-deps -opaque -open Seraph -o lib/.seraph.objs/byte/seraph__Scalar.cmo -c -impl lib/scalar/scalar.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.bench_saxpy.eobjs/byte -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o bin/.bench_saxpy.eobjs/byte/dune__exe__Bench_saxpy.cmi -c -intf bin/bench_saxpy.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.bench_sum_reduce.eobjs/byte -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o bin/.bench_sum_reduce.eobjs/byte/dune__exe__Bench_sum_reduce.cmi -c -intf bin/bench_sum_reduce.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -cmi-file bin/.main.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe.cmx -c -impl bin/.main.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I bin/.bench_saxpy.eobjs/byte -I bin/.bench_saxpy.eobjs/native -cmi-file bin/.bench_saxpy.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o bin/.bench_saxpy.eobjs/native/dune__exe.cmx -c -impl bin/.bench_saxpy.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I bin/.bench_sum_reduce.eobjs/byte -I bin/.bench_sum_reduce.eobjs/native -cmi-file bin/.bench_sum_reduce.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o bin/.bench_sum_reduce.eobjs/native/dune__exe.cmx -c -impl bin/.bench_sum_reduce.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I bin/.bench_dot.eobjs/byte -I bin/.bench_dot.eobjs/native -cmi-file bin/.bench_dot.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o bin/.bench_dot.eobjs/native/dune__exe.cmx -c -impl bin/.bench_dot.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file lib/.seraph.objs/byte/seraph__Bindings.cmi -no-alias-deps -opaque -open Seraph -o lib/.seraph.objs/native/seraph__Bindings.cmx -c -impl lib/ffi/bindings.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file lib/.seraph.objs/byte/seraph__Scalar.cmi -no-alias-deps -opaque -open Seraph -o lib/.seraph.objs/native/seraph__Scalar.cmx -c -impl lib/scalar/scalar.ml)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c kernels/dot_optim.S -o dot_optim.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c tools/gen/saxpy.s -o saxpy_gen.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c kernels/dot.S -o dot_neon.o)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.bench_dot.eobjs/byte -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o bin/.bench_dot.eobjs/byte/dune__exe__Bench_dot.cmi -c -intf bin/bench_dot.mli)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c tools/gen/dot.s -o dot_gen.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c kernels/saxpy.S -o saxpy.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c kernels/saxpy_optim.S -o saxpy_optim.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c kernels/sum_reduction.S -o sum_reduction_neon.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c tools/gen/sum_reduce.s -o sum_reduce_gen.o)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/test/.test_dot_prod.eobjs/byte -no-alias-deps -opaque -o lib/test/.test_dot_prod.eobjs/byte/dune__exe.cmo -c -impl lib/test/.test_dot_prod.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/test/test_dot_prod.mli) > _build/default/lib/test/.test_dot_prod.eobjs/dune__exe__Test_dot_prod.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/test/.test_saxpy.eobjs/byte -no-alias-deps -opaque -o lib/test/.test_saxpy.eobjs/byte/dune__exe.cmo -c -impl lib/test/.test_saxpy.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/test/test_sum_reduction.mli) > _build/default/lib/test/.test_sum_reduction.eobjs/dune__exe__Test_sum_reduction.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I lib/test/.test_sum_reduction.eobjs/byte -no-alias-deps -opaque -o lib/test/.test_sum_reduction.eobjs/byte/dune__exe.cmo -c -impl lib/test/.test_sum_reduction.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamldep.opt -modules -intf lib/test/test_saxpy.mli) > _build/default/lib/test/.test_saxpy.eobjs/dune__exe__Test_saxpy.intf.d
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/test/.test_dot_prod.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/test/.test_dot_prod.eobjs/byte/dune__exe__Test_dot_prod.cmi -c -intf lib/test/test_dot_prod.mli)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml ffi/shim.c -o shim.o)
+$ (cd _build/default/lib && /usr/bin/cc -O2 -fno-strict-aliasing -fwrapv -pthread -D_FILE_OFFSET_BITS=64 -Wall -fdiagnostics-color=always -c kernels/sum_reduction_optim.S -o sum_reduction_optim.o)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/test/.test_saxpy.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/test/.test_saxpy.eobjs/byte/dune__exe__Test_saxpy.cmi -c -intf lib/test/test_saxpy.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/test/.test_sum_reduction.eobjs/byte -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/.seraph.objs/byte -no-alias-deps -opaque -open Dune__exe -o lib/test/.test_sum_reduction.eobjs/byte/dune__exe__Test_sum_reduction.cmi -c -intf lib/test/test_sum_reduction.mli)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/seraph.cma lib/.seraph.objs/byte/seraph.cmo lib/.seraph.objs/byte/seraph__Bindings.cmo lib/.seraph.objs/byte/seraph__Scalar.cmo lib/shim.o lib/saxpy.o lib/saxpy_optim.o lib/dot_neon.o lib/dot_optim.o lib/sum_reduction_neon.o lib/sum_reduction_optim.o lib/saxpy_gen.o lib/dot_gen.o lib/sum_reduce_gen.o)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.bench_saxpy.eobjs/byte -I bin/.bench_saxpy.eobjs/native -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file bin/.bench_saxpy.eobjs/byte/dune__exe__Bench_saxpy.cmi -no-alias-deps -opaque -open Dune__exe -o bin/.bench_saxpy.eobjs/native/dune__exe__Bench_saxpy.cmx -c -impl bin/bench_saxpy.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file bin/.main.eobjs/byte/dune__exe__Main.cmi -no-alias-deps -opaque -open Dune__exe -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.bench_sum_reduce.eobjs/byte -I bin/.bench_sum_reduce.eobjs/native -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file bin/.bench_sum_reduce.eobjs/byte/dune__exe__Bench_sum_reduce.cmi -no-alias-deps -opaque -open Dune__exe -o bin/.bench_sum_reduce.eobjs/native/dune__exe__Bench_sum_reduce.cmx -c -impl bin/bench_sum_reduce.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/test/.test_dot_prod.eobjs/byte -I lib/test/.test_dot_prod.eobjs/native -cmi-file lib/test/.test_dot_prod.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/test/.test_dot_prod.eobjs/native/dune__exe.cmx -c -impl lib/test/.test_dot_prod.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/test/.test_saxpy.eobjs/byte -I lib/test/.test_saxpy.eobjs/native -cmi-file lib/test/.test_saxpy.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/test/.test_saxpy.eobjs/native/dune__exe.cmx -c -impl lib/test/.test_saxpy.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I lib/test/.test_sum_reduction.eobjs/byte -I lib/test/.test_sum_reduction.eobjs/native -cmi-file lib/test/.test_sum_reduction.eobjs/byte/dune__exe.cmi -no-alias-deps -opaque -o lib/test/.test_sum_reduction.eobjs/native/dune__exe.cmx -c -impl lib/test/.test_sum_reduction.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.bench_dot.eobjs/byte -I bin/.bench_dot.eobjs/native -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file bin/.bench_dot.eobjs/byte/dune__exe__Bench_dot.cmi -no-alias-deps -opaque -open Dune__exe -o bin/.bench_dot.eobjs/native/dune__exe__Bench_dot.cmx -c -impl bin/bench_dot.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/seraph.cmxa lib/.seraph.objs/native/seraph.cmx lib/.seraph.objs/native/seraph__Bindings.cmx lib/.seraph.objs/native/seraph__Scalar.cmx lib/shim.o lib/saxpy.o lib/saxpy_optim.o lib/dot_neon.o lib/dot_optim.o lib/sum_reduction_neon.o lib/sum_reduction_optim.o lib/saxpy_gen.o lib/dot_gen.o lib/sum_reduce_gen.o)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/test/.test_dot_prod.eobjs/byte -I lib/test/.test_dot_prod.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file lib/test/.test_dot_prod.eobjs/byte/dune__exe__Test_dot_prod.cmi -no-alias-deps -opaque -open Dune__exe -o lib/test/.test_dot_prod.eobjs/native/dune__exe__Test_dot_prod.cmx -c -impl lib/test/test_dot_prod.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/test/.test_saxpy.eobjs/byte -I lib/test/.test_saxpy.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file lib/test/.test_saxpy.eobjs/byte/dune__exe__Test_saxpy.cmi -no-alias-deps -opaque -open Dune__exe -o lib/test/.test_saxpy.eobjs/native/dune__exe__Test_saxpy.cmx -c -impl lib/test/test_saxpy.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/test/.test_sum_reduction.eobjs/byte -I lib/test/.test_sum_reduction.eobjs/native -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/re -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf -I lib/.seraph.objs/byte -I lib/.seraph.objs/native -cmi-file lib/test/.test_sum_reduction.eobjs/byte/dune__exe__Test_sum_reduction.cmi -no-alias-deps -opaque -open Dune__exe -o lib/test/.test_sum_reduction.eobjs/native/dune__exe__Test_sum_reduction.cmx -c -impl lib/test/test_sum_reduction.ml)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I lib -o lib/seraph.cmxs lib/seraph.cmxa)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe lib/seraph.cmxa bin/.main.eobjs/native/dune__exe.cmx bin/.main.eobjs/native/dune__exe__Main.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/bench_saxpy.exe lib/seraph.cmxa bin/.bench_saxpy.eobjs/native/dune__exe.cmx bin/.bench_saxpy.eobjs/native/dune__exe__Bench_saxpy.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/bench_dot.exe lib/seraph.cmxa bin/.bench_dot.eobjs/native/dune__exe.cmx bin/.bench_dot.eobjs/native/dune__exe__Bench_dot.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/bench_sum_reduce.exe lib/seraph.cmxa bin/.bench_sum_reduce.eobjs/native/dune__exe.cmx bin/.bench_sum_reduce.eobjs/native/dune__exe__Bench_sum_reduce.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o lib/test/test_dot_prod.exe lib/seraph.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring/astring.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner/cmdliner.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf/uutf.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/fmt.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli/fmt_cli.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/re/re.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims/stdlib_shims.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine/alcotest_engine.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix/unix.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty/fmt_tty.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/alcotest.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest lib/test/.test_dot_prod.eobjs/native/dune__exe.cmx lib/test/.test_dot_prod.eobjs/native/dune__exe__Test_dot_prod.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o lib/test/test_sum_reduction.exe lib/seraph.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring/astring.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner/cmdliner.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf/uutf.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/fmt.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli/fmt_cli.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/re/re.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims/stdlib_shims.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine/alcotest_engine.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix/unix.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty/fmt_tty.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/alcotest.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest lib/test/.test_sum_reduction.eobjs/native/dune__exe.cmx lib/test/.test_sum_reduction.eobjs/native/dune__exe__Test_sum_reduction.cmx)
+$ (cd _build/default && /Users/kaushikmuthukumar/.opam/5.1.1/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o lib/test/test_saxpy.exe lib/seraph.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/astring/astring.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/cmdliner/cmdliner.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/uutf/uutf.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/stdlib_ext/alcotest_stdlib_ext.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/fmt.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/cli/fmt_cli.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/re/re.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/stdlib-shims/stdlib_shims.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/engine/alcotest_engine.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/ocaml/unix/unix.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/fmt/tty/fmt_tty.cmxa /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest/alcotest.cmxa -I /Users/kaushikmuthukumar/.opam/5.1.1/lib/alcotest lib/test/.test_saxpy.eobjs/native/dune__exe.cmx lib/test/.test_saxpy.eobjs/native/dune__exe__Test_saxpy.cmx)

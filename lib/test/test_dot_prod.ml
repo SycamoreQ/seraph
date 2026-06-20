@@ -8,7 +8,6 @@ let make_random n : B.f32arr =
   done;
   a
 
-
 let lengths = [ 1; 2; 3; 4; 5; 7; 8; 9; 16; 17; 31; 32; 33; 100; 1000 ]
 
 let test_length n () =
@@ -23,6 +22,25 @@ let dot_tests =
     (fun n -> Alcotest.test_case (Printf.sprintf "n=%d" n) `Quick (test_length n))
     lengths
 
+(* dot_optim correctness — same boundary lengths as the neon baseline,
+   plus a few extra straddling dot_optim's own tier boundaries: it
+   processes 16 elements/iter in the main loop, then 4 elements/iter
+   in the medium loop, then scalar tail. n=16/17 and n=32/33 above
+   already cover the main-loop boundary; add a couple that land
+   exactly on the medium-loop (4-wide) boundary too. *)
+let optim_lengths = lengths @ [ 19; 20; 21; 35; 36; 37 ]
+
+let test_optim_length n () =
+  let x = make_random n in
+  let y = make_random n in
+  let expected = Seraph.Scalar.dot_prod x y in
+  let actual = B.dot_optim x y n in
+  Alcotest.(check (float 1e-3)) (Printf.sprintf "dot_optim n=%d" n) expected actual
+
+let dot_optim_tests =
+  List.map
+    (fun n -> Alcotest.test_case (Printf.sprintf "n=%d" n) `Quick (test_optim_length n))
+    optim_lengths
 
 let time_block ~reps (f : unit -> unit) : float =
   let t0 = Unix.gettimeofday () in
@@ -44,7 +62,8 @@ type dot_fn = B.f32arr -> B.f32arr -> int -> float
 let dot_variants : (string * dot_fn) list =
   [
     ("scalar (OCaml)", fun x y _n -> Seraph.Scalar.dot_prod x y);
-    ("neon (hand-written, 1 acc)", B.dot_neon);
+    ("neon (hand-written, baseline)", B.dot_neon);
+    ("neon (handwritten, optimized)", B.dot_optim);
     ("clang -O3, no restrict", B.dot_prod_gen);
     ("clang -O3, restrict", B.dot_prod_restrict_gen);
   ]
@@ -55,9 +74,6 @@ let bench_size (regime, n, reps) () =
   let y = make_random n in
   List.iter
     (fun (name, f) ->
-      (* checksum is cheap insurance against the call being optimized
-         away, and doubles as a sanity signal -- "nan" here means
-         something's broken regardless of timing *)
       let checksum = ref 0.0 in
       warmup ~iters:5 (fun () -> checksum := !checksum +. f x y n);
       let t = time_block ~reps (fun () -> checksum := !checksum +. f x y n) in
@@ -81,4 +97,7 @@ let () =
   Alcotest.run
     ~argv:(Array.append Sys.argv [| "-v" |])
     "seraph"
-    [ ("dot", dot_tests); ("dot-bench", dot_bench_tests) ]
+    [ ("dot", dot_tests);
+      ("dot-optim", dot_optim_tests);
+      ("dot-bench", dot_bench_tests)
+    ]

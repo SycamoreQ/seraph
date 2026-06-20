@@ -51,7 +51,8 @@ type saxpy_fn = float -> B.f32arr -> B.f32arr -> int -> unit
 let saxpy_variants : (string * saxpy_fn) list =
   [
     ("scalar (OCaml)", fun a x y _n -> Seraph.Scalar.saxpy a x y);
-    ("neon (hand-written)", B.saxpy_neon);
+    ("neon (handwritten, baseline)", B.saxpy_neon);
+    ("neon (handwritten, optimized)", B.saxpy_optim);
     ("clang -O3, no restrict", B.saxpy_gen);
     ("clang -O3, restrict", B.saxpy_restrict_gen);
   ]

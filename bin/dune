@@ -2,3 +2,15 @@
  (public_name seraph)
  (name main)
  (libraries seraph))
+
+(executable
+ (name bench_saxpy)
+ (libraries seraph))
+
+(executable
+ (name bench_dot)
+ (libraries seraph))
+
+(executable
+ (name bench_sum_reduce)
+ (libraries seraph))

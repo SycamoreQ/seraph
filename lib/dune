@@ -5,9 +5,44 @@
  (deps kernels/saxpy.S)
  (action (run %{cc} -c %{deps} -o %{target})))
 
+(rule
+ (target saxpy_optim.o)
+ (deps kernels/saxpy_optim.S)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target dot_neon.o)
+ (deps kernels/dot.S)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target dot_optim.o)
+ (deps kernels/dot_optim.S)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target sum_reduction_neon.o)
+ (deps kernels/sum_reduction.S)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target sum_reduction_optim.o)
+ (deps kernels/sum_reduction_optim.S)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target saxpy_gen.o)
+ (deps tools/gen/saxpy.s)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
+ (target dot_gen.o)
+ (deps tools/gen/dot.s)
+ (action (run %{cc} -c %{deps} -o %{target})))
+
  (rule
-  (target dot_neon.o)
-  (deps kernels/dot.S)
+  (target sum_reduce_gen.o)
+  (deps tools/gen/sum_reduce.s)
   (action (run %{cc} -c %{deps} -o %{target})))
 
 (rule
@@ -15,17 +50,12 @@
  (deps ffi/shim.c)
  (action (run %{cc} -c -I %{ocaml_where} %{deps} -o %{target})))
 
- (rule
-  (target saxpy_gen.o)
-  (deps tools/gen/saxpy.s)
-  (action (run %{cc} -c %{deps} -o %{target})))
-
- (rule
-  (target dot_gen.o)
-  (deps tools/gen/dot.s)
-  (action (run %{cc} -c %{deps} -o %{target})))
-
-
 (library
  (name seraph)
- (extra_objects saxpy shim dot_neon saxpy_gen dot_gen))
+ (modules bindings scalar)
+ (extra_objects
+  shim
+  saxpy saxpy_optim
+  dot_neon dot_optim
+  sum_reduction_neon sum_reduction_optim
+  saxpy_gen dot_gen sum_reduce_gen))
