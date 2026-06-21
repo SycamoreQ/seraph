@@ -68,7 +68,7 @@ dune build
 
 mkdir -p "$OUT_DIR"
 
-FAMILIES=(saxpy dot sum)
+FAMILIES=(saxpy dot sum_reduce)
 
 for family in "${FAMILIES[@]}"; do
   bin="$BIN_DIR/bench_${family}.exe"
