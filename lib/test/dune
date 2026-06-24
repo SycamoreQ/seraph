@@ -11,3 +11,8 @@
 (test
   (name test_sum_reduction)
   (libraries seraph alcotest unix))
+
+(test
+  (name test_softmax)
+  (modules test_softmax)
+  (libraries seraph alcotest unix))

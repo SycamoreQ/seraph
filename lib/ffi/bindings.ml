@@ -16,3 +16,7 @@ external sum_reduce_neon : f32arr -> int -> float = "caml_sum_reduce_neon"
 external sum_reduce_optim : f32arr -> int -> float = "caml_sum_reduce_optim"
 external sum_reduce_gen : f32arr -> int -> float = "caml_sum_reduce_gen"
 external sum_reduce_restrict_gen : f32arr -> int -> float = "caml_sum_reduce_restrict_gen"
+
+external softmax_neon : f32arr -> int -> unit = "caml_softmax_neon"
+external softmax_gen : f32arr -> int -> unit = "caml_softmax_gen"
+external softmax_restrict_gen : f32arr -> int -> unit = "caml_softmax_restrict_gen"

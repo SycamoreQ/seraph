@@ -6,3 +6,5 @@ val saxpy : float -> Bindings.f32arr -> Bindings.f32arr -> unit
 val dot_prod : Bindings.f32arr -> Bindings.f32arr -> float
 
 val sum_reduce: Bindings.f32arr -> float
+
+val softmax: Bindings.f32arr -> unit

@@ -26,6 +26,11 @@
  (action (run %{cc} -c %{deps} -o %{target})))
 
 (rule
+  (target softmax_neon.o)
+  (deps kernels/softmax.S)
+  (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
  (target sum_reduction_optim.o)
  (deps kernels/sum_reduction_optim.S)
  (action (run %{cc} -c %{deps} -o %{target})))
@@ -46,6 +51,11 @@
   (action (run %{cc} -c %{deps} -o %{target})))
 
 (rule
+  (target softmax_gen.o)
+  (deps tools/gen/softmax.s)
+  (action (run %{cc} -c %{deps} -o %{target})))
+
+(rule
  (target shim.o)
  (deps ffi/shim.c)
  (action (run %{cc} -c -I %{ocaml_where} %{deps} -o %{target})))
@@ -58,4 +68,5 @@
   saxpy saxpy_optim
   dot_neon dot_optim
   sum_reduction_neon sum_reduction_optim
-  saxpy_gen dot_gen sum_reduce_gen))
+  saxpy_gen dot_gen sum_reduce_gen
+  softmax_neon softmax_gen))

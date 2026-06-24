@@ -82,3 +82,26 @@ CAMLprim value caml_sum_reduce_restrict_gen(value x, value n) {
   float result = sum_reduce_restrict((const float *)Caml_ba_data_val(x), Int_val(n));
   return caml_copy_double(result);
 }
+
+
+extern void softmax_neon(float *x, int n);
+extern void softmax(float *x, int n);
+extern void softmax_restrict(float *x, int n);
+
+CAMLprim value caml_softmax_neon(value x, value n)
+{
+  softmax_neon((float *)Caml_ba_data_val(x), Int_val(n));
+  return Val_unit;
+}
+
+CAMLprim value caml_softmax_gen(value x, value n)
+{
+  softmax((float *)Caml_ba_data_val(x), Int_val(n));
+  return Val_unit;
+}
+
+CAMLprim value caml_softmax_restrict_gen(value x, value n)
+{
+  softmax_restrict((float *)Caml_ba_data_val(x), Int_val(n));
+  return Val_unit;
+}

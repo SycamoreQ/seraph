@@ -17,3 +17,7 @@ val sum_reduce_neon : f32arr -> int -> float
 val sum_reduce_optim : f32arr -> int -> float
 val sum_reduce_gen : f32arr -> int -> float
 val sum_reduce_restrict_gen : f32arr -> int -> float
+
+val softmax_neon: f32arr -> int -> unit
+val softmax_gen: f32arr -> int -> unit
+val softmax_restrict_gen: f32arr -> int -> unit

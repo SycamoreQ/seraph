@@ -16,7 +16,7 @@
 set -euo pipefail
 
 BIN_DIR="_build/default/bin"
-OUT_DIR="results"
+OUT_DIR="hyperfine_results"
 WARMUP=3
 MIN_RUNS=20
 VARIANTS=(scalar neon optim clang clang_restrict)
