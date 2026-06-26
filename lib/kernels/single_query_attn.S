@@ -1,7 +1,17 @@
-// single_query_attn.S
+// single_query_attn
 //
-// float single_query_attn(float *q , float *k float *v , int d)
+// void single_query_attn(const float *Q, const float *K, const float *V,
+// float *scores, float *out, int N, int D)
 //
+// AAPCS notation
+// Q = x0
+// K = x1
+// V = x2
+// scores = x3
+// out = x4
+// N = w5
+// D = w6
+
 
 #if defined(__APPLE__)
 #define FN(name) _##name
@@ -10,30 +20,29 @@
 #endif
 
 	.text
-	.global FN(single_query_attn_neon)
+	.global FN(single_query_attn)
 #if !defined(__APPLE__)
-	.type FN(single_query_attn_neon), %function
+	.type FN(single_query_attn), %function
 #endif
 
-FN(single_query_attn_neon):
+FN(single_query_attn):
     movi    v20.4s, #0
     movi    v21.4s, #0
     movi    v22.4s, #0
     movi    v23.4s, #0
-    mov     w9, w3
-    lsr     w4, w3, #4
-    and     w5, w3, #15
+    mov     w9,     w5
+    mov     w10,    w6
+    lsr     w4, w9, #4
+    and     w5, w9, #15
     cbz     w4, .LQK_medium_dot_setup
 
 .LQK_dot_loop:
-    ld1     {v1.4s, v2.4s, v3.4s, v4.4s}, [x0], #64
-    ld1     {v5.4s, v6.4s, v7.4s, v8.4s}, [x1], #64
-
+    ld1     {v1.4s, v2.4s, v3.4s, v4.4s}, [x0], #64         //load Q
+    ld1     {v5.4s, v6.4s, v7.4s, v8.4s}, [x1], #64         //load K
     fmla    v20.4s, v1.4s, v5.4s
     fmla    v21.4s, v2.4s, v6.4s
     fmla    v22.4s, v3.4s, v7.4s
     fmla    v23.4s, v4.4s, v8.4s
-
     subs    w4, w4, #1
     b.ne    .LQK_dot_loop
 
@@ -53,58 +62,25 @@ FN(single_query_attn_neon):
 .LQK_tail_setup:
     cbz     w3, .LQK_combine
 
-.LQK_tail_loop:
-    ldr     s10, [x0], #4
-    ldr     s11, [x1], #4
-    fmul    s10, s10, s11
-    fadd    s20, s20, s10
-
-    subs    w3, w3, #1
-    b.ne    .LQK_tail_loop
-
 .LQK_combine:
     fadd    v20.4s, v20.4s, v21.4s
     fadd    v22.4s, v22.4s, v23.4s
     fadd    v20.4s, v20.4s, v22.4s
-
-    b.ne    .LQK_store_scores
-
-.LQK_store_scores:
-    st1     {v20.4s}, [x9], #16
-    st1     {v21.4s}, [x9], #16
-    st1     {v22.4s}, [x9], #16
-    st1     {v23.4s}, [x9], #16
-
+    faddp   v20.4s, v20.4s, v20.4s
+    faddp   s20, v20.2s
+    fmul    s20, s20, s1
 
 .LV_setup:
-    ucvtf   s3, w9
-    fsqrt   s3, s3
-    dup     v0.4s, s3
-    fmul    v20.4s, v20.4s, v0.4s
-
-    dup     v24.4s, v0.s[0]
-
-    lsr     w4, w9, #2
-    and     w5, w9, #3
-    cbz     w4, .LV_tail_setup
+    ucvtf   s0, w10
+    fsqrt   s0, s0            // sqrt(D)
+    frecpe  s1, s0            // initial estimate of 1/sqrt(D)
+    frecps  s2, s0, s1        // refinement factor
+    fmul    s1, s1, s2        // s1 = 1/sqrt(D)
+    movi    x3, #0
+    cbz     .LV_medium_loop
 
 .LV_loop:
-    ld1     {v1.4s}, [x2], #16
-    fmul    v2.4s, v1.4s, v20.4s
-    st1     {v2.4s}, [x4], #16
-    subs    w4, w4, #1
-    b.ne    .LV_loop
-
-.LV_tail_setup:
-    cbz     w5, .Ldone
-
-.LV_tail_loop:
-    ldr     s1, [x2], #4
-    fmul    s2, s1, s0
-    str     s2, [x4], #4
-
-    subs    w5, w5, #1
-    b.ne    .LV_tail_loop
-
-.Ldone:
-    ret
+    ld1    {v20.4s, v21.4s, v22.4s, v23.4s}, [x2], #64
+    dup    v24.4s, s0, #64
+    ld1    {v25.4s, v26.4s, v27.4s, v28.4s}, [x3], #64
+    fmla
