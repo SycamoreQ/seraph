@@ -14,7 +14,7 @@ This is also the foundation for a planned single-query attention kernel, assembl
 
 | Kernel | File | What it teaches |
 |---|---|---|
-| SAXPY | `kernels/saxpy.S` | Basic elementwise FMA, tail handling, AAPCS64 calling convention |
+| SAXPY | `kernels/saxpy.S and kernels/saxpy_optim.S` | Basic elementwise FMA, tail handling, AAPCS64 calling convention |
 | Dot product (1 acc) | `kernels/dot.S` | Horizontal reduction via `faddp`, scalar vs vector accumulation |
 | Dot product (4 acc) | `kernels/dot_optim.S` | Multiple independent accumulators, breaking serial dependency chains |
 | Softmax | `kernels/softmax_neon.S` | Four-pass structure, max-subtraction for numerical stability, `frecpe`/`frecps` reciprocal, polynomial exp approximation via Horner's method |
@@ -39,7 +39,6 @@ Selected results on Apple Silicon (M-series):
 | clang -O3, no restrict | 17 | 30.5 | 183 |
 | clang -O3, restrict | 16 | 31.1 | 186 |
 
-The clang gap here is expected: clang's restrict-qualified SAXPY unrolls 16-wide with paired loads/stores (`ldp`/`stp`), while the hand-written kernel processes 4 elements per iteration. The hand-written unrolled variant (`saxpy_unrolled.S`) closes most of this gap.
 
 **Dot product (L1):**
 | Variant | ns/call | GFLOP/s | GB/s |
@@ -49,17 +48,12 @@ The clang gap here is expected: clang's restrict-qualified SAXPY unrolls 16-wide
 | clang -O3, no restrict | 83 | 6.2 | 24.8 |
 | clang -O3, restrict | 84 | 6.1 | 24.4 |
 
-The hand-written kernel beats clang's vectorized output by ~2.5×. clang vectorizes the multiply but immediately extracts each lane to a scalar register and chains them with sequential `fadd` instructions — a longer serial dependency chain than the single-accumulator NEON version. The 4-accumulator variant (`dot_optim.S`) extends this lead further.
-
 **Softmax (L1):**
 | Variant | ns/call | GFLOP/s | GB/s |
 |---|---|---|---|
 | Scalar OCaml | 1757 | 1.2 | 4.7 |
 | Hand-written NEON | 101 | 20.2 | 80.8 |
 | clang -O3 | 433 | 4.7 | 18.9 |
-
-The 4.3× gap over clang comes from replacing libm's `expf()` call (full-accuracy, branch-heavy, not auto-vectorizable) with a 4-term Horner polynomial approximation running entirely in NEON vector registers. The trade-off is accuracy: the approximation is valid for inputs within approximately `[-1, +1]` after max-subtraction; inputs further from zero accumulate significant error. A range-reduction based approach (decomposing `e^x` via `2^(x/ln2)`) would give full float32 accuracy across the entire range and is the planned improvement.
-
 
 ## Building
 
@@ -70,16 +64,9 @@ opam install alcotest
 dune build
 ```
 
-**Run correctness tests:**
+**Run tests:**
 ```sh
 dune test
-```
-
-**Run benchmarks:**
-```sh
-dune exec test/test_saxpy.exe
-dune exec test/test_dot_prod.exe
-dune exec test/test_softmax.exe
 ```
 
 ## FFI Design
@@ -95,4 +82,3 @@ Under the AArch64 procedure call standard:
 - `v8`–`v15` are callee-saved in their **lower 64 bits only** — clobbering the upper half without saving it causes intermittent corruption in the caller
 
 All kernels in this repo stay within `v0`–`v7` and `v16`–`v31` and are leaf functions, so no save/restore is needed. Any future kernel that needs `v8`–`v15` across a call must save/restore explicitly.
-
